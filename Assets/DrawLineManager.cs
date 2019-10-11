@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class DrawLineManager : MonoBehaviour
 {
-    public WaveVR_ControllerLoader trackedObj;
     private LineRenderer currLine;
     private int numClicks = 0;
 
