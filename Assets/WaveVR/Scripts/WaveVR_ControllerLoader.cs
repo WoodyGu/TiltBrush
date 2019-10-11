@@ -364,7 +364,7 @@ public class WaveVR_ControllerLoader : MonoBehaviour {
     private string genericControllerFileName = "Generic_";
     private List<AssetBundle> loadedAssetBundle = new List<AssetBundle>();
     private string renderModelNamePath = "";
-    private WaveVR_Controller.EDeviceType deviceType = WaveVR_Controller.EDeviceType.Dominant;
+    public WaveVR_Controller.EDeviceType deviceType = WaveVR_Controller.EDeviceType.Dominant;
     private bool connected = false;
     //private uint sessionid = 0;
     private string renderModelName = "";

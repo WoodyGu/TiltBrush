@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Samples/SeaOfCube/Scenes/Main.unity
+    guid: 6e2a9586139397e43b8b3abbfaec00b3
+  - enabled: 0
+    path: Assets/Samples/SeaOfCube/Scenes/SeaOfCubeWithTwoHead.unity
+    guid: b28e83539a9c0f04ca4fca5fb0e20b24
   m_configObjects: {}
