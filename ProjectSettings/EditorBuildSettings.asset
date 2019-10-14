@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Samples/SeaOfCube/Scenes/SeaOfCubeWithTwoHead.unity
     guid: b28e83539a9c0f04ca4fca5fb0e20b24
+  - enabled: 0
+    path: Assets/MainScene.unity
+    guid: 34a02ff4d84264b6dbb33e2f6e907a77
+  - enabled: 0
+    path: Assets/GrassFlowers/Demo/DemoGrassFlowers.unity
+    guid: 679e28dd92e786342b7944447228f70c
   m_configObjects: {}
