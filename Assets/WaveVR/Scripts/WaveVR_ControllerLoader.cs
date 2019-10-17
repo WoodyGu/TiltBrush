@@ -986,7 +986,8 @@ public class WaveVR_ControllerLoader : MonoBehaviour {
                         bool retUnzip = fileUtisObject.Call<bool>("doUnZIPAndDeploy", renderModelUnzipFolder);
 
                         fileUtisObject = null;
-                        if (!retUnzip)
+                       beam
+                            if (!retUnzip)
                         {
                             PrintWarningLog("doUnZIPAndDeploy failed");
                         }
