@@ -33,6 +33,10 @@ public class DrawLineManager : MonoBehaviour
         {
             GameObject go = new GameObject();
             currLine = go.AddComponent<LineRenderer>();
+
+            currLine.useWorldSpace = false;
+            GameObject LineContainer = GameObject.Find("Lines");
+            currLine.transform.parent = LineContainer.transform;
             
             currentStroke = go;
             SetColor();
@@ -50,6 +54,23 @@ public class DrawLineManager : MonoBehaviour
             // Debug.Log(locationOfRight);
             currLine.SetPosition(numClicks, locationOfRight);
             numClicks++;
+        }
+        //non-dominant controller trigger to teleport to random location
+        else if(WaveVR_Controller.Input(WaveVR_Controller.EDeviceType.NonDominant).GetPressDown(WVR_InputId.WVR_InputId_Alias1_Grip))
+        {
+            teleportRandom();
+        }
+        else if(WaveVR_Controller.Input(WaveVR_Controller.EDeviceType.NonDominant).GetPressDown(WVR_InputId.WVR_InputId_Alias1_DPad_Left))
+        {
+            move();
+        }
+        else if(WaveVR_Controller.Input(WaveVR_Controller.EDeviceType.NonDominant).GetPressDown(WVR_InputId.WVR_InputId_Alias1_DPad_Up))
+        {
+            rotate();
+        }
+        else if(WaveVR_Controller.Input(WaveVR_Controller.EDeviceType.NonDominant).GetPressDown(WVR_InputId.WVR_InputId_Alias1_DPad_Right))
+        {
+            scaleUp();
         }
     }
 
@@ -139,5 +160,57 @@ public class DrawLineManager : MonoBehaviour
             Destroy(g);
         }
         oldObjectsStack.Clear();
+    }
+
+    public void teleportRandom()
+    {
+        GameObject head = GameObject.Find("WaveVR");
+        //GameObject controllerR = GameObject.Find("Generic_MC_R(Clone)");
+        // GameObject controllerL = GameObject.Find("Generic_MC_L(Clone)");
+
+        Vector3 headPos = head.transform.position;
+        //Vector3 rightPos = controllerR.transform.position;
+        // Vector3 leftPos = controllerL.transform.position;
+        
+        Debug.Log("Before teleport Head: "+head.transform.position);
+        // Debug.Log("Before teleport ControllerR: "+controllerR.transform.position);
+
+        Vector3 direction = UnityEngine.Random.onUnitSphere;
+        direction.x = Mathf.Clamp (direction.x, 0.5f, 1f);
+        direction.y = 0;
+        direction.z = Mathf.Clamp (direction.z, 3f, 10f);
+        float distance = 2 * UnityEngine.Random.value + 1.5f;
+        Vector3 newHeadPos = direction * distance;
+        
+        head.transform.position = newHeadPos;
+        GameObject.Find("head").transform.localPosition = newHeadPos;
+        //controllerR.transform.Translate(newHeadPos-headPos);
+        // controllerL.transform.position = newHeadPos + (leftPos-headPos);
+
+        Debug.Log("After teleport Head: "+head.transform.position);
+        //Debug.Log("After teleport ControllerR: "+controllerR.transform.position);
+    }
+
+    public void move()
+    {
+        GameObject lines = GameObject.Find("Lines");
+        Debug.Log("move");
+       	lines.transform.Translate(0,0,0.05f);
+       	lines.transform.Rotate(0, 5, 0);
+    }
+
+    
+    public void scaleUp()
+    {
+        GameObject lines = GameObject.Find("Lines");
+        Debug.Log("scale");
+        lines.transform.localScale += new Vector3(0,0,0.5f);
+    }
+
+    public void rotate()
+    {
+        GameObject lines = GameObject.Find("Lines");
+        Debug.Log("rotate");
+        lines.transform.Rotate(0, 5, 0);
     }
 }

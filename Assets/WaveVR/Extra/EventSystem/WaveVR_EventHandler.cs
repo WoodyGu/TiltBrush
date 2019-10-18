@@ -121,7 +121,7 @@ public class WaveVR_EventHandler: MonoBehaviour,
 
     public void OnPointerHover (PointerEventData eventData)
     {
-        transform.Rotate (0, 12 * (10 * Time.deltaTime), 0);
+        //transform.Rotate (0, 12 * (10 * Time.deltaTime), 0);
     }
     #endregion
 

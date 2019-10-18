@@ -364,7 +364,7 @@ public class WaveVR_ControllerLoader : MonoBehaviour {
     private string genericControllerFileName = "Generic_";
     private List<AssetBundle> loadedAssetBundle = new List<AssetBundle>();
     private string renderModelNamePath = "";
-    public WaveVR_Controller.EDeviceType deviceType = WaveVR_Controller.EDeviceType.Dominant;
+    private WaveVR_Controller.EDeviceType deviceType = WaveVR_Controller.EDeviceType.Dominant;
     private bool connected = false;
     //private uint sessionid = 0;
     private string renderModelName = "";
@@ -986,7 +986,7 @@ public class WaveVR_ControllerLoader : MonoBehaviour {
                         bool retUnzip = fileUtisObject.Call<bool>("doUnZIPAndDeploy", renderModelUnzipFolder);
 
                         fileUtisObject = null;
-                            if (!retUnzip)
+                        if (!retUnzip)
                         {
                             PrintWarningLog("doUnZIPAndDeploy failed");
                         }
