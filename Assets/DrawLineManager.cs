@@ -204,7 +204,7 @@ public class DrawLineManager : MonoBehaviour
     {
         GameObject lines = GameObject.Find("Lines");
         Debug.Log("scale");
-        lines.transform.localScale += new Vector3(0,0,0.5f);
+        lines.transform.localScale += new Vector3(0.5f,0,0.5f);
     }
 
     public void rotate()
